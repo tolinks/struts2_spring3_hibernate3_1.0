@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" 
+	"http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<package name="myApp" extends="struts-default">
+		<global-results>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+			<result name="success">/WEB-INF/jsp/success.jsp</result>
+		</global-results>
+		<action name="userManagerAct" class="userAct" method="doLogin">
+			<result name="login">/query.action</result>
+		</action>
+		
+		<action name="query" class="userAct" method="doQuery" />
+		<action name="delete" class="userAct" method="doDelete" />
+		<action name="edit" class="userAct" method="doEdit">
+			<result name="editUser">/WEB-INF/jsp/editUser.jsp</result>
+		</action>
+		
+		<action name="add" class="userAct" method="doAdd">
+			<result name="addUser">/WEB-INF/jsp/addUser.jsp</result>
+		</action>
+	</package>
+</struts>    
